@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render 
-from .models import Customer, Restaurant
+from .models import Customer, Restaurant, Item
 
 
 # Create your views here.
@@ -77,3 +77,62 @@ def add_restaurant(request):
 def open_show_restaurant(request):
     restaurantList = Restaurant.objects.all()
     return render(request, 'show_restaurants.html', {'restaurantList': restaurantList})
+
+def open_update_restaurant(request, restaurant_id):
+    restaurant = Restaurant.objects.get(id=restaurant_id)
+    return render(request, 'update_restaurant.html', {'restaurant': restaurant}) 
+
+def update_restaurant(request, restaurant_id):
+    restaurant = Restaurant.objects.get(id = restaurant_id)
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        picture = request.POST.get('picture')
+        cuisine = request.POST.get('cuisine')
+        rating = request.POST.get('rating')
+
+        restaurant.name = name
+        restaurant.picture = picture
+        restaurant.cuisine = cuisine
+        restaurant.rating = rating
+        restaurant.save()
+    restaurantList = Restaurant.objects.all()
+    return render(request, 'show_restaurants.html', {'restaurantList': restaurantList})
+
+def delete_restaurant(request, restaurant_id):
+    restaurant = Restaurant.objects.get(id = restaurant_id)
+    restaurant.delete()
+    restaurantList = Restaurant.objects.all()
+    return render(request, 'show_restaurants.html', {'restaurantList': restaurantList})
+
+def open_update_menu(request, restaurant_id):
+    restaurant = Restaurant.objects.get(id = restaurant_id)
+    itemList = restaurant.items.all()
+
+    return render(request, 'update_menu.html', {'restaurant': restaurant, 'itemList': itemList})
+
+def update_menu(request, restaurant_id):
+    restaurant = Restaurant.objects.get(id = restaurant_id)
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+        price = request.POST.get('price')
+        Vegetarian = request.POST.get('vegetarian') == 'on'
+        picture = request.POST.get('picture')
+
+        try:
+            Item.objects.get(name = name)
+            return HttpResponse("Item already exists in the menu.")
+        except:
+            Item.objects.create(
+                restaurant = restaurant,
+                name = name,
+                description = description,
+                price = price,
+                vegetarian = Vegetarian,
+                picture = picture,
+            )
+    return render(request, 'admin_home.html')
+
+
+
+       
