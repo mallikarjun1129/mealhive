@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background: linear-gradient(to right, #ff6b00, #ff914d);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+    align-items: center; 
+    text-align: center;
+}
+
+
+h1{
+    text-align: center;
+    font-style: italic;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.links a {
+    text-decoration: none;
+    background: white;
+    color: #ff6b00;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.links a:hover {
+    background: #e65c00;
+    color: white;
+}
+
