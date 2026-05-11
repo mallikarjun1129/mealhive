@@ -8,7 +8,30 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    <h1>Customer Home</h1>
-    <p>Welcome, Customer!</p>
+    <h1>Welcome to MealHive, {{username }}!</h1>
+    <p>Explore our delicious meals and place your order now.</p>
+    <table border="1">
+       
+            <thead>
+                <tr>
+                    <th>Restaurant Name</th>
+                    <th>Picture </th>
+                    <th>Cuisine </th>
+                    <th>Rating </th>
+                    <th>Operation </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in restaurantList %}
+                <tr>
+                    <td>{{ r.name }}</td>
+                    <td><img src="{{ r.picture }}" ></td>
+                    <td>{{ r.cuisine }}</td>
+                    <td>{{ r.rating }}</td>
+                    <td><a href="{% url 'view_menu' r.id username %}">View Menu</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 </body>
 </html>

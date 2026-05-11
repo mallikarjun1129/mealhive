@@ -22,3 +22,11 @@ class Item(models.Model):
     price = models.FloatField()
     vegetarian = models.BooleanField(default=False)
     picture = models.URLField(max_length=500, default='https://www.pngall.com/wp-content/uploads/5/Restaurant-Food-PNG-High-Quality-Image.png')
+
+
+class Cart(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='cart')
+    items = models.ManyToManyField(Item, related_name='carts')
+
+    def total_price(self):
+        return sum(item.price for item in self.items.all())

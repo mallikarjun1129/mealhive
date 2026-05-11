@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    Hi {{ username }}, here is your cart:
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Item Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in itemList %}
+            <tr>
+                <td><img src="{{ item.picture }}" ></td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <p><strong>Total Price:{{ total_price}}</strong></p>
+
+        <form action="{% url 'checkout' username %}">
+            {% csrf_token %}
+            <input type="submit" value="Checkout">
+        </form>
+    </table>
+</body>
+</html>
