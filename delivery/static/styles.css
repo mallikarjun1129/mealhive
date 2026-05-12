@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff6b00, #ff914d);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+    align-items: center; 
+    text-align: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+h1{
+    text-align: center;
+    font-style: italic;
+}
+
+h3 {
+    margin: 10px;
+    color: #333;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.links a {
+    text-decoration: none;
+    background: white;
+    color: #ff6b00;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.links a:hover {
+    background: #e65c00;
+    color: white;
+}
+
+button {
+    padding: 10px 20px;
+    background: #ff6b00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #e65c00;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.8);;
+    border: 2px solid #D7B7BC; /* Light border */
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin: 20px auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #D7B7BC; /* Light border */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #D7B7BC;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #F7E4E0; /* Alternate row color */
+}
+
+img {
+    max-width: 100px;
+    border-radius: 5px;
+    height: auto;
+    
+}

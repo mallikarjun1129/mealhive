@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Restaurant</title>
-     {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
+    <h3>Add a New Restaurant</h3>
     <form action="{% url 'add_restaurant' %}" method="POST">
         {% csrf_token %}
         <label>Restaurant Name:</label>
