@@ -117,5 +117,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-RAZORPAY_KEY_ID = 'rzp_test_So3uE0Du0bcrrI'
-RAZORPAY_KEY_SECRET = 'fbpHFXdujIXRGW4FnU61FwQh'
+RAZORPAY_KEY_ID = '...........................'  add key id here
+RAZORPAY_KEY_SECRET = '.......................'   add secret key here
